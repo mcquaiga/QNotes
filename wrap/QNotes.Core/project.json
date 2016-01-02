@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net45+win+MonoAndroid10+Xamarin.iOS10+MonoTouch10": {
+      "wrappedProject": "../../src/QNotes.Core/QNotes.Core.csproj",
+      "bin": {
+        "assembly": "../../src/QNotes.Core/obj/{configuration}/QNotes.Core.dll",
+        "pdb": "../../src/QNotes.Core/obj/{configuration}/QNotes.Core.pdb"
+      }
+    }
+  }
+}

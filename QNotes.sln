@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{066A9B1D-92E8-46DB-9128-25615211149A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AAE089B5-2C9F-4A63-969B-7E61559BF334}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "QNotes.API", "src\QNotes\QNotes.API.xproj", "{D4D286D8-7D86-4F7E-B978-EA645431B4DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QNotes.Core", "src\QNotes.Core\QNotes.Core.csproj", "{89A10D35-A288-49E8-930E-E9008DA4A16C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4D286D8-7D86-4F7E-B978-EA645431B4DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4D286D8-7D86-4F7E-B978-EA645431B4DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4D286D8-7D86-4F7E-B978-EA645431B4DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4D286D8-7D86-4F7E-B978-EA645431B4DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89A10D35-A288-49E8-930E-E9008DA4A16C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89A10D35-A288-49E8-930E-E9008DA4A16C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89A10D35-A288-49E8-930E-E9008DA4A16C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89A10D35-A288-49E8-930E-E9008DA4A16C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D4D286D8-7D86-4F7E-B978-EA645431B4DA} = {066A9B1D-92E8-46DB-9128-25615211149A}
+		{89A10D35-A288-49E8-930E-E9008DA4A16C} = {066A9B1D-92E8-46DB-9128-25615211149A}
+	EndGlobalSection
+EndGlobal
