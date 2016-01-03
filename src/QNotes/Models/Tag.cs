@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QNotes.Core.Models
+namespace QNotes.API.Models
 {
-    public class Tag : BaseEntity
+    public class Tag : MongoEntity
     {
         public string Name { get; set; }
-
     }
 }

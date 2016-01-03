@@ -3,51 +3,58 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
-using QNotes.Core.Models;
+using QNotes.API.Models;
+using QNotes.API.Data.Services;
+using Microsoft.AspNet.Authorization;
 
 namespace QNotes.Controllers
 {
     [Route("api/[controller]")]
     public class NotesController : Controller
     {
+        IEntityService<Note> _noteService { get; set; }
+
+        public NotesController(IEntityService<Note> noteService)
+        {
+            _noteService = noteService;
+        }
+
         // GET: api/notes
         [HttpGet]
-        public Task<IEnumerable<Note>> Get()
+        public async Task<IEnumerable<Note>> Get()
         {
-            return GetRepo().FindAll();
+            return await _noteService.GetAllAsync();
         }
 
         // GET api/notes/{guid}
-        [HttpGet("{id}")]
-        public async Task<Note> Get(Guid id)
+        [HttpGet("{id}"), Authorize]
+        public async Task<Note> Get(string id)
         {
-            return await GetRepo().Get(id);
+            return await _noteService.GetByIdAsync(id);
         }
 
         // POST api/notes
         [HttpPost]
-        public async void Post([FromBody]Note note)
+        public async Task<IActionResult> Post([FromBody]Note note)
         {
-            await GetRepo().Save(note);
+            if (note == null) return HttpBadRequest("Note object was empty or was an invalid model.");
+
+            await _noteService.CreateAsync(note);
+            return new ObjectResult(note);
         }
 
         // PUT api/notes/9627e454-1633-4485-9911-4cd5fea4b339
-        [HttpPut("{id}")]
-        public async void Put(Guid id, [FromBody]Note note)
-        {
-            await GetRepo().Update(id, note);
-        }
+        //[HttpPut("{id}")]
+        //public async void Put(Guid id, [FromBody]Note note)
+        //{
+        //    await GetRepo().Update(id, note);
+        //}
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public async void Delete(Guid id, [FromBody]Note note)
+        public async void Delete(string id, [FromBody]Note note)
         {
-            await GetRepo().Delete(id, note);
-        }
-
-        private MongoRepository<Note> GetRepo()
-        {
-            return new MongoRepository<Note>();
+            await _noteService.DeleteAsync(id);
         }
     }
 }
